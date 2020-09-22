@@ -1,0 +1,24 @@
+Aside from the code provided.  One small edit must
+be done to an .INI file located on the WebServer itself.
+
+Find the file named:
+
+msdfmap.ini
+
+Open and edit it:
+
+In the [connect default] section there is a value for: Access.
+Change it to read:
+
+[connect default]
+Access=ReadWrite
+
+Also in the [sql default] section: change the SQL value to be like:
+
+[sql default]
+Sql=
+
+
+What those settings are are overwrite properties to any incoming remote connection.  The way they were all remote connection requests access values were getting NoAccess and the SQL for any calls was being changed to " ".
+
+Now they will be given ReadWrite and the SQL will not get modified.
